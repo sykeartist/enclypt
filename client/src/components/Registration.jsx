@@ -1,4 +1,3 @@
-  
 import {
   FaGoogle,
   FaFacebook,
@@ -16,9 +15,9 @@ const Registration = () => {
   const [password, setPassword] = useState("");
   const [reconfirmPassword, setReconfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const [showPassword, setShowPassword] = useState(false); // State for password visibility
-  const [showReconfirmPassword, setShowReconfirmPassword] = useState(false); // State for reconfirm password visibility
-  const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false);
+  const [showReconfirmPassword, setShowReconfirmPassword] = useState(false);
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -38,6 +37,7 @@ const Registration = () => {
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return re.test(password);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -62,28 +62,29 @@ const Registration = () => {
 
     setErrors(validationErrors);
 
-    if(Object.keys(validationErrors).length === 0) {
-
-      
+    if (Object.keys(validationErrors).length === 0) {
       // RegistrationRequest(fullName, email, password)
-      // .then((result)=>{
-      //   if(result===true){
-      //     setErrors({})
-      //     navigate('/login')
-      //   }
-      //   else{
+      // .then((result) => {
+      //   if (result === true) {
+      //     setErrors({});
+      //     navigate('/login');
+      //   } else {
       //     setErrors({
-      //       email: "Email already exist"
-      //     })
+      //       email: "Email already exists"
+      //     });
       //   }
-      // })
+      // });
     }
   };
+
   return (
-    <>
-      <div className="flex justify-center items-center h-screen bg-gray-100">
-        <div className="max-w-md bg-white rounded-3xl p-8 border-4 border-white shadow-xl">
-          <div className="text-center text-3xl font-extrabold text-blue-500 mb-8">
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="flex flex-1 gap-36">
+        <div className="flex justify-center items-center w-1/2">
+          <h1 className="text-8xl font-['Poppins'] font-bold text-green-700">Enclypt</h1>
+        </div>
+        <div className="max-w-md w-1/2 bg-white bg-opacity-50 rounded-3xl p-8 border-4 border-gray-50 shadow-xl shadow-green-300 ">
+          <div className="text-center text-3xl font-extrabold text-green-700 mb-8">
             Sign Up
           </div>
 
@@ -93,11 +94,10 @@ const Registration = () => {
               placeholder="Full Name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              className={`w-full bg-gray-100 p-3 rounded-xl border-2 border-transparent focus:outline-none focus:border-blue-300 transition 
+              className={`w-full bg-gray-100 p-3 rounded-xl border-2 border-transparent focus:outline-none focus:border-green-200 transition 
               ${errors.fullName ? "border-red-500" : ""}`}
               required
             />
-
             {errors.fullName && (
               <p className="text-red-500">{errors.fullName}</p>
             )}
@@ -107,11 +107,10 @@ const Registration = () => {
               placeholder="E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full bg-gray-100 p-3 rounded-xl border-2 border-transparent focus:outline-none focus:border-blue-300 transition 
+              className={`w-full bg-gray-100 p-3 rounded-xl border-2 border-transparent focus:outline-none focus:border-green-200 transition 
               ${errors.email ? "border-red-500" : ""}`}
               required
             />
-
             {errors.email && <p className="text-red-500">{errors.email}</p>}
 
             <div className="relative">
@@ -120,7 +119,7 @@ const Registration = () => {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className={`w-full bg-gray-100 p-3 rounded-xl border-2 border-transparent focus:outline-none focus:border-blue-300 transition 
+                className={`w-full bg-gray-100 p-3 rounded-xl border-2 border-transparent focus:outline-none focus:border-green-200 transition 
               ${errors.password ? "border-red-500" : ""}`}
                 required
               />
@@ -131,7 +130,6 @@ const Registration = () => {
                 {showPassword ? <FaEyeSlash size="20" /> : <FaEye size="20" />}
               </span>
             </div>
-
             {errors.password && (
               <p className="text-red-500">{errors.password}</p>
             )}
@@ -142,7 +140,7 @@ const Registration = () => {
                 placeholder="Retype the Password"
                 value={reconfirmPassword}
                 onChange={(e) => setReconfirmPassword(e.target.value)}
-                className={`w-full bg-gray-100 p-3 rounded-xl border-2 border-transparent focus:outline-none focus:border-blue-300 transition 
+                className={`w-full bg-gray-100 p-3 rounded-xl border-2 border-transparent focus:outline-none focus:border-green-200 transition 
               ${errors.reconfirmPassword ? "border-red-500" : ""}`}
                 required
               />
@@ -157,20 +155,13 @@ const Registration = () => {
                 )}
               </span>
             </div>
-
             {errors.reconfirmPassword && (
               <p className="text-red-500">{errors.reconfirmPassword}</p>
             )}
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-blue-400 text-white py-3 rounded-xl font-bold shadow-lg transform hover:scale-105 transition"
-              // onClick={() => {
-              //   if (Object.keys(errors).length === 0) {
-              //     alert("Registration successful!");
-              //     window.location.href = "/login";
-              //   }
-              // }}
+              className="w-full bg-gradient-to-r from-green-600 to-green-300 text-white py-3 rounded-xl font-bold shadow-lg transform hover:scale-105 transition"
             >
               Sign Up
             </button>
@@ -178,7 +169,7 @@ const Registration = () => {
 
           <div className="mt-6 text-center text-sm text-gray-500">
             Already have an account?{" "}
-            <Link to="/login" className="text-blue-500 hover:underline">
+            <Link to="/login" className="text-green-600 hover:underline">
               Sign In
             </Link>
           </div>
@@ -188,28 +179,27 @@ const Registration = () => {
               Or Sign Up with
             </div>
             <div className="flex justify-center space-x-6">
-              <button className="bg-gray-100 p-3 rounded-full shadow hover:scale-110 transition">
+              <button className="bg-gray-100 p-3 rounded-full shadow shadow-green-300 hover:scale-110 transition">
                 <FaGoogle className="text-red-500" size="24" />
               </button>
-              <button className="bg-gray-100 p-3 rounded-full shadow hover:scale-110 transition">
+              <button className="bg-gray-100 p-3 rounded-full shadow shadow-green-300 hover:scale-110 transition">
                 <FaFacebook className="text-blue-700" size="24" />
               </button>
-              <button className="bg-gray-100 p-3 rounded-full shadow hover:scale-110 transition">
+              <button className="bg-gray-100 p-3 rounded-full shadow shadow-green-300 hover:scale-110 transition">
                 <FaTwitter className="text-blue-400" size="24" />
               </button>
             </div>
           </div>
 
           <div className="mt-6 text-center">
-            <a href={"#"} className="text-xs text-blue-500 hover:underline">
+            <a href={"#"} className="text-xs text-green-600 hover:underline">
               Learn user license agreement
             </a>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default Registration;
-
