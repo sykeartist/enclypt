@@ -1,13 +1,14 @@
+import React, { Suspense } from 'react';
+import Loader from '../components/Loader';
 
-import Home from '../components/Home';
+const Home = React.lazy(() => import('../components/Home'));
 
 const HomePage = () => {
     return (
         <div>
-            {/* <Suspense fallback={<Loader />}>
+            <Suspense fallback={<Loader />}>
                 <Home />
-            </Suspense> */}
-            <Home />
+            </Suspense>
         </div>
     );
 };

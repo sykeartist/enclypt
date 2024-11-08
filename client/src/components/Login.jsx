@@ -72,7 +72,7 @@ const Login = () => {
     <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="flex flex-1 gap-36">
         <div className="flex justify-center items-center w-1/2">
-          <h1 className="text-8xl font-['Poppins'] xl font-bold text-green-700">Enclypt</h1>
+        <img src="/ENCLYPT LOGO.png" alt="Logo" className="w-80  " />
         </div>
         <div className="max-w-md w-1/2 bg-white bg-opacity-50 rounded-3xl p-8 border-4 border-gray-50  shadow-xl shadow-green-300 ">
           <div className="text-center text-3xl font-extrabold text-green-700 mb-8">
