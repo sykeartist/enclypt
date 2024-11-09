@@ -1,30 +1,31 @@
 import { NavLink } from "react-router-dom";
-import {BiHome, BiChat, BiNotification, BiCog, BiLogOutCircle} from 'react-icons/bi'
+import {BiNotification} from 'react-icons/bi'
+import { FaUserFriends } from "react-icons/fa";
+import { TiUser } from "react-icons/ti";
+import { HiHome, HiChatBubbleLeftRight  } from "react-icons/hi2";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { IoMdSettings } from "react-icons/io";
 
-const Navitem = ({ to, icon: Icon }) => {
+
+
+
+
+
+const Navitem = ({ to, icon: Icon, text }) => {
     const isActive = window.location.pathname === to;
   
     return (
         <>
         <NavLink
           to={to} 
-          className={`m-auto block w-28 h-16 rounded-l-lg
-           ${isActive
-             ? "bg-white" 
-             : ""}`}
-             
-          style={{ color: isActive ? "#454545" : 'white' }}
+          className={`my-12 mx-auto px-2 py-1  h-6 block w-full text-center font-semibold text-lg color-white rounded-l-lg`}
+        //   ${isActive ? "bg-white": ""}             
+          style={{ color: isActive ? "white" : "gray" }}
         >
-          <Icon className='m-auto p-3 w-28 h-16  drop-shadow-lg'/>
+          <Icon className='m-auto p-3 w-auto h-14  drop-shadow-lg'/>
 
+          {text}
         </NavLink>
-        
-        <div className={`w-2 h-16 bg-[#454545] rounded-l-lg absolute drop-shadow-md right-2 top-0
-         ${ isActive
-          ? "block" 
-          : "hidden" }`} 
-        >   
-        </div>
         </>
     );
   };
@@ -51,12 +52,14 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="h-full  mt-20 w-[7%]  bg-green-500">
-                <Navitem to={"/"} icon={BiHome} />
-                <Navitem  icon={BiChat} />
+            <div className="h-auto w-[7%]  flex flex-col rounded-r-lg bg-green-500">
+                <Navitem to={"/"}  icon={HiHome} />
+                <Navitem  icon={HiChatBubbleLeftRight } />
+                <Navitem  icon={TiUser} />
+                <Navitem  icon={FaUserFriends } />
+                <Navitem  icon={FaPeopleGroup} />
                 <Navitem  icon={BiNotification} />
-                <Navitem  icon={BiCog} />
-                <Navitem  icon={BiLogOutCircle} />
+                <Navitem  icon={IoMdSettings} />
             </div>
         </div>
     );
